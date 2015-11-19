@@ -1,0 +1,96 @@
+<em><em><!DOCTYPE html>
+<html>
+<head>
+<title>ProGuard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- META -->  
+<meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- Modalit&agrave; compatibilit&agrave; IE -->
+<link href="dist/css/bootstrap.min.css" rel="stylesheet" media="screen"> <!-- CSS -->
+<link href="css/main.css" rel="stylesheet" media="screen"> <!-- CSS -->
+ </head>
+ <body>
+ 
+ 
+  <div class="container">
+  <div class="row ">
+  <div class="col-md-9">
+  <h2>Introduzione</h2>
+  <div align="justify">
+  ProGuard &egrave; un software, implementato in Java, per effettuare lo shrink e l'offuscamento del bytecode Java.
+  Il software offre le seguenti funzionalit&agrave;:
+  <p>
+      <ul>
+          <li> Shrink: rilevare ed eliminare classi, campi, metodi e attributi non utilizzati;</li>
+          <li> Offuscamento: rinominare classi, campi e metodi utilizzando una nomenclatura breve.</li>
+      </ul>
+  </p>
+  ProGuard riceve in input un file .jar e restituisce in output un nuovo file .jar pi&ugrave; compatto, limitandone
+  il reverse-engineering.
+  Il file .jar prodotto necessita di minori requisiti di memoria e pu&ograve; essere trasferito velocemente sulla rete.
+  Le entit&agrave; modellate dal sistema, quindi, riflettono le caratteristiche di un oggetto Java.
+  </div>
+   
+  <h2>Architettura SW</h2>
+  <p>
+  
+  Il modello architetturale &egrave; strutturato a livelli. In particolare, l'architettura di riferimento &egrave; di tipo 		    open-strict:
+  ogni livello pu&ograve; comunicare con tutti i livelli sottostanti. La Fig. 1.0.1 &egrave; mostra l'architettura generale di ProGuard.
+  
+  </p>
+  <p align="center"> <img src="img/arc_v1.png" class="img-responsive"/></p>
+  <p>L'archtettura &egrave; suddivisa in tre livelli, descritti nei paragrafi seguenti.</p>
+  <div>
+      <h3>Front-End</h3>
+      <p>
+          Il Front-End &egrave; il livello pi&ugrave; alto dell'architettura e interagisce con l'utente tramite un'interfaccia a 			          riga
+          di comando. In Fig. 1.0.2 &egrave; mostrato il diagramma delle dipendenze tra le relative classi.
+      </p>
+      <p align="left"> <img src="img/fe_v1.png" class="img-responsive"/></p>
+      <p>
+          La classe ProGuard &egrave; una classe Facade, rappresentando il punto di collegamento tra l'utente e il sistema.
+          La sua repsonsabilit&agrave; &egrave; quella di coordinare le classi relative alla gestione delle opzioni e funzionalit          &agrave; di sistema.    
+      </p>
+      <h3>Function</h3>
+      <p>
+          Il livello Function &egrave; il livello intermedio dell'architettura ed &egrave; costituito da due sottositemi:
+          <ul>
+              <li> proguard.shrink: rileva ed elimina classi, campi, metodi e attributi non utilizzati.
+               In Fig. 1.0.3 &egrave; mostrato il relativo diagramma delle dipendenze tra le classi.
+              
+              </li>
+               <p align="left"> <img src="img/sr_v1.png" class="img-responsive"/></p>
+              <li> proguard.obfuscate: rinomina classi, campi e metodi utilizzando una nomenclatura breve.
+               In Fig. 1.0.4 &egrave; mostrato il relativo diagramma delle dipendenze tra le classi.
+              </li>
+              <p align="left"> <img src="img/ob_v1.png" class="img-responsive"/></p>
+          </ul>
+      </p>
+      <p>
+          Ogni sottosistema di tale livello utilizza funzionalit&agrave; del livello sottostante per assolvere alle 
+          proprie responsabilit&agrave;.    
+      </p>
+      <h3>Business Model</h3>
+      <p>
+      Rappresenta il livello pi&ugrave; basso dell'arhitettura, descrivendo il dominio applicativo del sistema. Inoltre, fornisce 
+      interfacce di utilit&agrave;, di navigazione e di gestione delle strutture dati intermedie. In Fig. 1.0.5 &egrave; mostrato      il relativo diagramma delle dipendenze tra le classi.
+      <p align="center"> <img src="img/bm_v1.png" class="img-responsive"/></p>
+      </p>
+      <p>
+          Il Business Model &egrave; strutturato in quattro sottositemi:
+          <ul>
+              <li> proguard.classfile: fornisce le classi che modellano il dominio applicativo;
+              </li>
+              <li> proguard.classfile.instruction: modella le instruzioni di un programma;
+              </li>
+              <li> proguard.classfile.util: fornisce le classi d utilit&agrave;;
+              </li>
+              <li> proguard.classfile.visitor: fornisce interfacce per ispezionare e generare files .jar, oltre
+              a quelle di navigazione e gestione delle strutture dati intermedie.
+              </li>
+          </ul>
+      </p>
+  </div>  
+  </div>
+  </div>
+ </div>
+</body>
+</html>
