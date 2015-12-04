@@ -1,0 +1,82 @@
+<html>
+<head>
+  <title>ProGuard 3.0.7</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- META -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- Modalit&agrave; compatibilit&agrave; IE -->
+  <link href="dist/css/bootstrap.min.css" rel="stylesheet" media="screen"> <!-- CSS -->
+  <link href="css/main.css" rel="stylesheet" media="screen"> <!-- CSS -->
+</head>
+<body>
+<div class="container">
+  <div class="row ">
+    <div class="col-md-9">
+      <h2>Introduzione</h2>
+      <div align="justify">
+       Il software in versione 3.0.7 ha introdotto le seguenti funionalit&agrave; rispetto alla versione precedente:
+        <p>
+        <ul>
+          <li> Ottimizzazione bytecode;</li>
+          <li> Lettura e scrittura di jars innnestati;</li>
+          <li> Gestione dei file compilati con la JDK 1.5;</li>
+        </ul>
+        </p>
+      </div>
+
+   <h2>Architettura SW</h2>
+  <p>
+  Il modello architetturale del software in versione 3.0.7 &egrave; ha subito due variazioni rilevanti:
+  <ul>
+  <li>Introduzione al livello Function del compoenente di ottimizzazione: proguard.optimize</li>
+  <li>Reingegnerizzazione del livello Front-End: il componente proguard.ant &egrave; stato spostato nelle External Components.</li>
+  </ul>
+  La Fig. 3.1 mostra l'architettura di ProGuard.
+  </p>
+  <p align="center"> <img src="img/v3/arch.png" class="img-responsive"/></p>
+  
+  <h3>Ottimizzazione bytecode</h3>
+  <p>Il componente di ottimizzazione riceve in ingeresso lo Shrink Code e genera in output il bytecode ottimizzato per la fase
+  di offuscamento.</p>
+   <div class="row">
+    <div class="col-md-6">
+	<img src="img/v3/opt.png" class="img-responsive"/>
+    </div>
+    <div class="col-md-6">
+     <img src="img/v3/intro.PNG" class="img-responsive"/>
+    </div>
+  </div>
+  <p>Le ottimizazioni sul bytecode sono eseguite a livello di metodi:
+   <ul>
+  <li>Valutazione delle espressioni costatni;</li>
+  <li>Rimozioni di computazioni non necessarie;</li>
+  <li>Rimozioni di accessi a campi non necessari;</li>
+  <li>Rimozioni di chiamate a metodi non necessarie;</li>
+  <li>Rimozioni di salti condizionati non necessari;</li>
+  <li>Rimozioni di confronti non necessari;</li>
+  <li>Ottimizzazioni peephole: ottimizzazioni eseguite in un piccolo insieme di istruzioni in un segmento di codice
+  generato. Viene effettuato il riconoscimento di serie di istruzioni che possono essere sostituite da un insieme di istruzioni
+   pi&ugrave; brevi o pi&ugrave; veloci;</li>
+  <li>Impostare il modificatore di accesso "final" per classi e metodi, quando possibile;</li>
+  <li>Rimozione di codice per il logging</li>
+  </ul>
+  <p>Gli effetti positivi delle ottimizzazioni dipendono dal codice e dalla VM sulla quale il codice &egrave; eseuito.</p>
+  </p>
+  <h3>Reingegnerizzazione del Front-End</h3>
+  <p>Al fine di eliminare le dipendenze con le classi del Business Model, il componente proguard.ant &egrave; stato spostato 
+  nelle External Components, interfacciandosi esclusivamente con il Front-End.</p>
+  <p> Le figure segueni mostrano reingegnerizzazione effettuata. </p>
+  <div class="row">
+    <div class="col-md-6">
+    <img src="img/v2/ant_2.png" class="img-responsive"/>
+    <p>Versione 2.0.1</p>
+    </div>
+    <div class="col-md-6">
+     <img src="img/v3/ant.png" class="img-responsive"/>
+     <p>Versione 3.0.7</p>
+    </div>
+  </div>
+  </div>  
+  </div>
+  </div>
+ </div> <!--End Container -->
+</body>
+</html>

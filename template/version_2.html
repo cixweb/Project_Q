@@ -1,6 +1,6 @@
 <html>
 <head>
-  <title>ProGuard</title>
+  <title>ProGuard 2.1.0</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- META -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- Modalit&agrave; compatibilit&agrave; IE -->
   <link href="dist/css/bootstrap.min.css" rel="stylesheet" media="screen"> <!-- CSS -->
@@ -14,12 +14,9 @@
     <div class="col-md-9">
       <h2>Introduzione</h2>
       <div align="justify">
-        ProGuard &egrave; un tool, a riga di comando ed implementato in Java, per effettuare lo shrink e l'offuscamento del bytecode Java.
-        Il software offre le seguenti funzionalit&agrave;:
+       Il software in versione 2.0.1 ha introdotto le seguenti funionalit&agrave; rispetto alla versione precedente:
         <p>
         <ul>
-          <li> Shrink: rilevare ed eliminare classi, campi, metodi e attributi non utilizzati;</li>
-          <li> Offuscamento: rinominare classi, campi e metodi utilizzando una nomenclatura breve;</li>
           <li> Retrace: de-offuscamento degli stack trace e ripristino di stack trace offuscati;</li>
           <li> J2ME Wireless Toolkit: plugin di offuscamento di midlet</li>
           <li> Ant task: task per integrare ProGuard in un processo di build;</li>
@@ -30,14 +27,49 @@
           <li> Offuscamento incrementale.</li>
         </ul>
         </p>
-        ProGuard riceve in input un file .jar e restituisce in output un nuovo file .jar pi&ugrave; compatto, limitandone
-        il reverse-engineering.
-        Il file .jar prodotto necessita di minori requisiti di memoria e pu&ograve; essere trasferito velocemente sulla rete.
-        Le entit&agrave; modellate dal sistema, quindi, riflettono le caratteristiche di un oggetto Java.
       </div>
 
-    </div>
+   <h2>Architettura SW</h2>
+  <p>
+  
+  Il modello architetturale del software in versione 2.0.1 &egrave; sempre strutturato a livelli rispecchiando il modello   	  	 						  architetturale open-strict. 
+  La Fig. 1.0.1 &egrave; mostra l'architettura generale di ProGuard.
+  
+  </p>
+  <p align="center"> <img src="img/v2/arch_v2.png" class="img-responsive"/></p>
+  <p>Rispetto alla verisone precedente, sono stati introdotti i seguenti sottosistemi:</p>
+  <div>
+      <ul>
+              <li> Front-End:
+              <ul>
+              <li> proguard.gui: gestione delle componenti grafiche</li>
+              <li> proguard.ant: gestione delle attivit&agrave; in Ant;</li>
+              </ul>
+              </li>
+      </ul>
+      <ul>
+              <li> Function:
+              <ul>
+              <li> proguard.retrace: de-offuscamento degli stack trace e ripristino di quelli offuscati.</li>
+              </ul>
+              </li>
+      </ul>
+      <ul>
+              <li> Business Model: al suo interno sono state aggiunte classi di gestione automatica delle chiamate Class.forName e				                   di gestione file.
+              </li>
+      </ul>
+      <p>Inoltre, sono state aggiunte componenti esterne che interagiscono solo con il Front-End, in modo tale da esportare verso
+      l'esterno le funzionalit&agrave; del sistema software:
+      <ul>
+              <li> External Components: 
+              <ul>
+              <li> proguard.wtk: plugin per l'offuscamento di Midlet;</li>
+              </ul>
+              </li>
+      </ul>
+  </div>  
   </div>
-</div>
+  </div>
+ </div> <!--End Container -->
 </body>
 </html>
