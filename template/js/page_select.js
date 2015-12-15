@@ -24,4 +24,14 @@ $(document).ready(function() {
 		var c = $('#v5').attr('name');
 		$('#view').load(c);
 	});
+	
+	$("#v6").click(function() {
+		var c = $('#v6').attr('name');
+		$('#view').load(c);
+	});
+	
+	$("#v7").click(function() {
+		var c = $('#v7').attr('name');
+		$('#view').load(c);
+	});
 });
