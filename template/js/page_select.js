@@ -34,4 +34,27 @@ $(document).ready(function() {
 		var c = $('#v7').attr('name');
 		$('#view').load(c);
 	});
+	
+	$("#p1").click(function() {
+		var c = $('#p1').attr('name');
+		$('area').empty();
+		$('#area').load(c);
+	});
+	
+	$("#p2").click(function() {
+		var c = $('#p2').attr('name');
+		$('area').empty();
+		$('#area').load(c);
+	});
+	
+	$("#p3").click(function() {
+		var c = $('#p3').attr('name');
+		$('area').empty();
+		$('#area').load(c);
+	});
+	
+	$("#p4").click(function() {
+		var c = $('#p4').attr('name');
+		$('#area').load(c);
+	});
 });
