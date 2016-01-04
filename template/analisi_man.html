@@ -29,9 +29,48 @@
   Il fattore di manutenibilit&agrave; &egrave; stato calcolato avendo come riferimento la seguente tabella derivata dallo standard.
   <p align="center"> <img src="img/table.png" class="img-responsive"/></p>
   L'interpretazione della tabella &egrave; la seguente: il fattore di manutenibilit&agrave; &egrave; descritto dai quattro criteri gi&agrave; discussi      	   precedentemente. I singoli criteri dipendono dalle metriche assegnate in accordo con uno specifico peso.
+  <p></p>
+  Le metriche fornite dai technical reports sono le seguenti:
+  
+  <ul>
+    <li>CBO (Coupling Between Object Classes):accoppiamento tra le classi di oggetti;</li>
+    <li>NOM (Number of Method): numero medio di metodi in una classe;</li>
+    <li>NOC (Number of Class): numero di sottoclassi che dipendono immediatamente da una classe di una gerarchia;</li>
+    <li>LCOM (Lock of Coesione Method): misura il numero di metodi che accedono a uno o più variabili di istanza in comune a una 		    classe;</li>
+    <li>DIT (Depth of Inheritance): misura la profondità dell'albero di ereditarietà.</li>
+  </ul>
+  
+  I grafici sottostanti riportano i valori medi delle singole metriche calcolate sulle cinque versioni del sistema software. Ad ogni   metrica sono stati assocciati dei valori soglia forniti da uno studio sulle metriche OO.
+   <p></p>
+  
+  <div class="row">
+    <div class="col-md-6">
+	<p align="center"> <img src="img/metrics/CBO.PNG" class="img-responsive"/></p>
+    </div>
+    <div class="col-md-6">
+	<p align="center"> <img src="img/metrics/NOC.PNG" class="img-responsive"/></p>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+	<p align="center"> <img src="img/metrics/LCOM.PNG" class="img-responsive"/></p>
+    </div>
+    <div class="col-md-6">
+	<p align="center"> <img src="img/metrics/DIT.PNG" class="img-responsive"/></p>
+    </div>
+    </div>
+     <div class="row">
+    <div class="col-md-6">
+	<p align="center"> <img src="img/metrics/NOM.PNG" class="img-responsive"/></p>
+    </div>
+      <div class="col-md-6">
+	<p></p>
+    </div>
+    </div>
   </p>
   <p></p>
   <p></p>
+  
    <h4>Analizzabilit&agrave;</h4>
    <p>L'analizzabilit&agrave; rappresenta la facilit&agrave; con la quale &egrave; possibile analizzare il codice per localizzare un errore nello  	   stesso.</p>
    <p align="center"> <img src="img/manuten/ana.png" class="img-responsive"/></p>
@@ -46,34 +85,16 @@
     <p align="center"> <img src="img/manuten/test.png" class="img-responsive"/></p>
    <h4>Manutenibilit&agrave;</h4>
     <p align="center"> <img src="img/manuten/man.png" class="img-responsive"/></p>
-  
-  	<!--
-    <p>Al fine di valutare la manutenibilit&agrave; del sistema, &egrave; stato calcolato l'indice di manutenibilit&agrave; di ogni    release</p>
-    <p>MI = 171 - 5.2 * ln(aveV) - 0.23 * aveV(g') - 16.2 * ln (aveLOC) + 50 * sin (sqrt(2.4 * perCM))
-    <p></p>
-    dove: 
-	<ul>
-    <li> aveV = Volume di Halstead medio V per modulo</li>
-    <li> aveV(g') = complessit&agrave; ciclomatica estesa media per modulo</li>
-    <li> aveLOC = media LOC per modulo; e, opzionalmente</li>
-    <li> perCM = percentuale media di righe commento per modulo</li>
-    </p>
- 
- 	<p align="center"> <img src="" class="img-responsive"/></p>
-    -->
+	
    <p></p>
    <p></p>
     <h3>Conclusioni</h3>
-    <p>Di seguito gengono riportati gli istogrammi relativi alle sottocaratteristiche della manutenibilit&agrave;.</p>
+    <p>Di seguito vengono riportati gli istogrammi relativi alle sottocaratteristiche della manutenibilit&agrave;.</p>
     <p align="center"> <img src="img/manuten/man_2.png" class="img-responsive"/></p>
     <p>
-    Nelle prime 3 release del sistema il modello architetturale resta invariato in quanto vengono
-    soltanto aggiunte nuove funzionalit&agrave;. Pertanto gli indici della manutenibilit&agrave; non
-    subiscono variazioni significative.
-    <p>Al contrario, nel passaggio dalla terza alla quarta release il pattern architetturale viene
-    significativamente alterato, mantenendo al tempo stesso una elevata qualit&agrave; di progettazione.</p>
-    <p>A seguito di un ulteriore reingegnerizzazione dell'architettura gli indici di manutenibilit&agrave;
-    tendono a crescere notevolmente.</p>
+    I valori pi&ugrave; bassi delle sottocaratteristiche della manutenibilità si evidenziano nella seconda e terza 
+    release del sistema, nelle quali si &egrave; verificato l'aggiunta delle maggiori funzionalit&agrave; supportate dal
+    sistema. Tali funzionalit&agrave; fanno riferimento all'implementazione dei moduli relativi l'interfaccia grafica, il retrace 	e l'ottimizzazione del bytecode. A partire dalla quarta release del sistema sono stati effettuati molteplici interventi di refactoring e manutenzione preventiva. Tali interventi giustificano l'aumento dei valori di stabilità e manutenibilità del sistema. Ulteriori interventi si sono verificati al rilascio della quinta release del sistema, in cui &egrave; stato compiuto un maggiore sforzo di reingegnerizzazione.
     </p>
   </div>  
   </div>
