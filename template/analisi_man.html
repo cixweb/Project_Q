@@ -85,8 +85,10 @@
     <p align="center"> <img src="img/manuten/test.png" class="img-responsive"/></p>
    <h4>Manutenibilit&agrave;</h4>
     <p align="center"> <img src="img/manuten/man.png" class="img-responsive"/></p>
-	
+    
    <p></p>
+   <p></p>
+   
    <p></p>
     <h3>Conclusioni</h3>
     <p>Di seguito vengono riportati gli istogrammi relativi alle sottocaratteristiche della manutenibilit&agrave;.</p>
@@ -96,6 +98,13 @@
     release del sistema, nelle quali si &egrave; verificato l'aggiunta delle maggiori funzionalit&agrave; supportate dal
     sistema. Tali funzionalit&agrave; fanno riferimento all'implementazione dei moduli relativi l'interfaccia grafica, il retrace 	e l'ottimizzazione del bytecode. A partire dalla quarta release del sistema sono stati effettuati molteplici interventi di refactoring e manutenzione preventiva. Tali interventi giustificano l'aumento dei valori di stabilità e manutenibilità del sistema. Ulteriori interventi si sono verificati al rilascio della quinta release del sistema, in cui &egrave; stato compiuto un maggiore sforzo di reingegnerizzazione.
     </p>
+     <h3>Approfondimento: evoluzione dell'architettura</h3>
+    <p> In aggiunta all'analisi architetturale delle singole versioni del sistema software è stata analizzata l'evoluzione
+    del sistema focalizzando l'attenzione sui cambiamenti nei packages e sulle loro interazioni. In particolare, &egrave; stata
+    considerata la metrica archietturale: CDI (Core Design Instability), la quale valuta i cambiamenti eseguiti nei packages  		    quando l'architettura core del sistema evolve. Valori bassi di tale metrica implicano l'introduzione di pochi cambiamenti tra    una release N e una release N+1. </p>
+     <p align="center"> <img src="img/manuten/CDI.png" class="img-responsive"/></p>
+   <p>I risulatati ottenuti confermano lo studio preliminare svolto sull'architettura del software, in quanto dal grafico si 
+   evidenzia che l'aggiunta di maggiori funzionalit&agrave; si verifica nel passaggio tra la seconda e terza release. L'archittetura del sistema si stabilizza tra la quarta e quinta release perchè l'attenzione si &egrave; focalizzata sull'attivit&agrave; di reingegnerizzazione del sistema.</p>
   </div>  
   </div>
   </div>
